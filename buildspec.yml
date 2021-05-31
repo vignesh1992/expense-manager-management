@@ -6,10 +6,10 @@ phases:
       nodejs: 14
     commands:
       - echo installing dependencies...
-      - cd src/expense-manager
       - rm -rf dist
       - mkdir dist
-      - sync -av --exclude 'dist' . dist/
+      - cp src/expense-manager/* dist/
+      - cd dist/
       - npm install --production
   build:
     commands:
@@ -18,8 +18,11 @@ phases:
   post_build:
     commands:
       - find . -type f ! -name '*.zip' -delete
+      - mkdir expense-manager
+      - mv expense-manager-lambdas.zip expense-manager/
+      - cd ..
 artifacts:
   files:
     - "**/*"
-  base-directory: 'dist/'
+  base-directory: 'dist/expense-manager'
   discard-paths: yes
