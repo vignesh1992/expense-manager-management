@@ -1,0 +1,11 @@
+{
+  "name": "expense-manager-management",
+  "version": "1.0.0",
+  "description": "expense-manager-management",
+  "scripts": {},
+  "author": "VIGNESH T I",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
