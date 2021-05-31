@@ -2,7 +2,10 @@
   "name": "expense-manager-management",
   "version": "1.0.0",
   "description": "expense-manager-management",
-  "scripts": {},
+  "scripts": {
+    "script1": "cd src/expense-manager && rm -rf dist && mkdir dist && rsync -av --exclude 'dist' . dist/ && cd ../..",
+    "script2": "cd src/expense-manager/dist && npm install --production && zip -r expense-manager.zip . && find . -type f ! -name '*.zip' -delete"
+  },
   "author": "VIGNESH T I",
   "license": "ISC",
   "dependencies": {

@@ -34,6 +34,7 @@ Latest commit cc3f45b 6 days ago
 
 # compiled output
 /dist
+/src/expense-manager/dist
 /tmp
 /out-tsc
 # Only exists if Bazel was run

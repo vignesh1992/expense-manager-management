@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - echo installing dependencies...
+      - cd src/expense-manager
+      - rm -rf dist
+      - mkdir dist
+      - sync -av --exclude 'dist' . dist/
+      - npm install --production
+  build:
+    commands:
+      - echo attempting to zip
+      - zip -r expense-manager-lambdas.zip . 
+  post_build:
+    commands:
+      - find . -type f ! -name '*.zip' -delete
+artifacts:
+  files:
+    - "**/*"
+  base-directory: 'dist/'
+  discard-paths: yes
