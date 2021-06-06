@@ -1,1 +1,1 @@
-# ExpenseManager Management
+# Expense Manager Management
