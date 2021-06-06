@@ -26,8 +26,8 @@ phases:
       - aws s3 cp dist/expense-manager/dependency_layer.zip  s3://expense-manager-management --region eu-west-1
       - aws lambda publish-layer-version --region eu-west-1 --layer-name expense-manager-dependencies-layer --content  S3Bucket=expense-manager-management,S3Key=dependency_layer.zip
       - aws lambda update-function-code --region eu-west-1 --s3-bucket expense-manager-management --s3-key expense-manager-lambdas.zip --function-name get-expense-categories
-artifacts:
-  files:
-    - "**/*"
-  base-directory: 'dist/expense-manager'
-  discard-paths: yes
+# artifacts:
+#   files:
+#     - "**/*"
+#   base-directory: 'dist/expense-manager'
+#   discard-paths: yes
