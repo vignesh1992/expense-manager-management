@@ -5,22 +5,25 @@ phases:
     runtime-versions:
       nodejs: 14
     commands:
-      - echo installing dependencies...
+      - echo installing dependencies
       - rm -rf dist
       - mkdir dist
-      - cp src/expense-manager/* dist/
-      - cd dist/
-      - npm install --production
+      - cd backend && npm install
+      - cd app && npm install
+      - cd ../..
   build:
     commands:
       - echo attempting to zip
-      - zip -r expense-manager-lambdas.zip . 
+      - cd backend && zip -r dependency_layer.zip *
+      - cd app/srv && zip -r expense-manager-lambdas.zip *
+      - cd ../../..
   post_build:
     commands:
-      - find . -type f ! -name '*.zip' -delete
-      - mkdir expense-manager
-      - mv expense-manager-lambdas.zip expense-manager/
-      - cd ..
+      - mkdir dist/expense-manager
+      - mv backend/dependency_layer.zip dist/expense-manager/
+      - mv backend/app/srv/expense-manager-lambdas.zip dist/expense-manager/
+      - aws s3 cp dist/expense-manager/expense-manager-lambdas.zip  s3://expense-manager-management --region eu-west-1
+      - aws s3 cp dist/expense-manager/dependency_layer.zip  s3://expense-manager-management --region eu-west-1
 artifacts:
   files:
     - "**/*"
