@@ -24,8 +24,8 @@ phases:
       - mv backend/app/srv/expense-manager-lambdas.zip dist/expense-manager/
       - aws s3 cp dist/expense-manager/expense-manager-lambdas.zip  s3://expense-manager-management --region eu-west-1
       - aws s3 cp dist/expense-manager/dependency_layer.zip  s3://expense-manager-management --region eu-west-1
-      - aws lambda publish-layer-version --region eu-west-1 --layer-name expense-manager-dependencies-layer --s3-bucket expense-manager-management --s3-key dependency_layer.zip 
-    	- aws lambda update-function-code --region eu-west-1 --s3-bucket expense-manager-management --s3-key expense-manager-lambdas.zip --function-name get-expense-categories 
+      - aws lambda publish-layer-version --region eu-west-1 --layer-name expense-manager-dependencies-layer --s3-bucket expense-manager-management --s3-key dependency_layer.zip
+    	- aws lambda update-function-code --region eu-west-1 --s3-bucket expense-manager-management --s3-key expense-manager-lambdas.zip --function-name get-expense-categories
 	
 artifacts:
   files:
