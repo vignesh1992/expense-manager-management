@@ -28,7 +28,7 @@ pipeline {
     
     stage('Publish') {
       steps {
-        sh 'make pack-lambdas'  
+        sh 'echo "Publish"'  
       }
     }
   }
