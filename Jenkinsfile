@@ -12,9 +12,11 @@ pipeline {
     }      
      
     stage('Build') {
+      when {
+         branch "master"
+      }
       steps {
-        sh 'echo "Build stage"'
-        sh 'echo $branch'
+        sh 'echo "Inside Master true"'
       }
     }
     
