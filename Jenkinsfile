@@ -7,7 +7,7 @@ pipeline {
         
     stage('Pre') {
       steps {
-          echo Pre stage
+          sh 'echo "Pre stage"'
         }
     }      
      
@@ -20,7 +20,7 @@ pipeline {
     
     stage('Publish') {
       steps {
-        echo publish lambdas  
+        sh 'echo "publish lambdas"'  
       }
     }
   }
