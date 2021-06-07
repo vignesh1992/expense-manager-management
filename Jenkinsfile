@@ -8,6 +8,7 @@ pipeline {
     stage('Pre') {
       steps {
           sh 'echo "Pre stage"'
+          sh 'printenv'
         }
     }      
      
