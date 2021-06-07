@@ -18,7 +18,7 @@ pipeline {
             if (env.BRANCH_NAME == 'main') {
                 echo 'I only execute on the main branch'
             } else {
-                echo 'I execute elsewhere'
+                echo 'I execute elsewhere $env.BRANCH_NAME'
             }          
         }
       }
