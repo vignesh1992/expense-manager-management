@@ -13,14 +13,16 @@ pipeline {
     }      
      
     stage('Build') {
-      when {
-         branch "main"
-      }
       steps {
-        sh 'echo "Inside Main true"'
+        script {
+            if (env.BRANCH_NAME == 'main') {
+                echo 'I only execute on the main branch'
+            } else {
+                echo 'I execute elsewhere'
+            }          
+        }
       }
     }
-    
     
     stage('Publish') {
       steps {
