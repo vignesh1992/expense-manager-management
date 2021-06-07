@@ -14,6 +14,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'echo "Build stage"'
+        sh 'echo env.GIT_BRANCH'
       }
     }
     
