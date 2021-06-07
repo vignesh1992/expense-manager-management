@@ -14,10 +14,10 @@ pipeline {
      
     stage('Build') {
       when {
-         branch "master"
+         branch "main"
       }
       steps {
-        sh 'echo "Inside Master true"'
+        sh 'echo "Inside Main true"'
       }
     }
     
