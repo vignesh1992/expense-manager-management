@@ -8,15 +8,21 @@ pipeline {
     stage('Pre') {
       steps {
           sh 'echo "Pre stage"'
+          sh 'printenv'
         }
     }      
      
     stage('Build') {
       steps {
-        sh 'echo "Build stage"'
+        script {
+            if (env.BRANCH_NAME == 'main') {
+                echo 'I only execute on the main branch'
+            } else {
+                echo 'I execute elsewhere $env.BRANCH_NAME'
+            }          
+        }
       }
     }
-    
     
     stage('Publish') {
       steps {
