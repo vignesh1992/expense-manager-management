@@ -13,7 +13,7 @@ pipeline {
      
     stage('Build') {
       steps {
-        sh 'make pack-lambdas'
+        sh 'echo "Build stage"'
       }
     }
     
