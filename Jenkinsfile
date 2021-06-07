@@ -17,9 +17,11 @@ pipeline {
         script {
             if (env.BRANCH_NAME == 'main') {
                 echo 'I only execute on the main branch'
-            } else {
-                echo 'I execute elsewhere $env.BRANCH_NAME'
-            }          
+            } else if (env.BRANCH_NAME == 'test1'){
+                echo 'I execute elsewhere test1'
+            } else if (env.BRANCH_NAME == 'test2'){
+                echo 'I execute elsewhere test2'
+            }         
         }
       }
     }
